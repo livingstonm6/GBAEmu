@@ -127,17 +127,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Bus.cpp" />
+    <ClCompile Include="Memory.cpp" />
     <ClCompile Include="CPU.cpp" />
     <ClCompile Include="GBAEmu.cpp" />
     <ClCompile Include="InstructionExecutor.cpp" />
-    <ClCompile Include="Motherboard.cpp" />
+    <ClCompile Include="Emulator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bus.h" />
+    <ClInclude Include="Memory.h" />
     <ClInclude Include="CPU.h" />
     <ClInclude Include="InstructionExecutor.h" />
-    <ClInclude Include="Motherboard.h" />
+    <ClInclude Include="Emulator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
