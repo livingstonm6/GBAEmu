@@ -130,20 +130,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Cartridge.cpp" />
-    <ClCompile Include="Memory.cpp" />
     <ClCompile Include="CPU.cpp" />
     <ClCompile Include="GBAEmu.cpp" />
     <ClCompile Include="InstructionExecutor.cpp" />
     <ClCompile Include="Emulator.cpp" />
+    <ClCompile Include="MemoryBus.cpp" />
     <ClCompile Include="Registers.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cartridge.h" />
     <ClInclude Include="CPUMode.h" />
-    <ClInclude Include="Memory.h" />
     <ClInclude Include="CPU.h" />
     <ClInclude Include="InstructionExecutor.h" />
     <ClInclude Include="Emulator.h" />
+    <ClInclude Include="MemoryBus.h" />
     <ClInclude Include="Registers.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

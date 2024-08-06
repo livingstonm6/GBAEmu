@@ -3,53 +3,53 @@
 const uint32_t Registers::read(RegisterType reg, CPUModeType mode)
 {
 	switch (reg) {
-	case REG_R0:
+	case REG_0:
 		return r0;
-	case REG_R1:
+	case REG_1:
 		return r1;
-	case REG_R2:
+	case REG_2:
 		return r2;
-	case REG_R3:
+	case REG_3:
 		return r3;
-	case REG_R4:
+	case REG_4:
 		return r4;
-	case REG_R5:
+	case REG_5:
 		return r5;
-	case REG_R6:
+	case REG_6:
 		return r6;
-	case REG_R7:
+	case REG_7:
 		return r7;
-	case REG_R8:
+	case REG_8:
 		if (mode == CPUMODE_FIQ) {
 			return r8_fiq;
 		}
 		return r8;
 
-	case REG_R9:
+	case REG_9:
 		if (mode == CPUMODE_FIQ) {
 			return r9_fiq;
 		}
 		return r9;
 
-	case REG_R10:
+	case REG_10:
 		if (mode == CPUMODE_FIQ) {
 			return r10_fiq;
 		}
 		return r10;
 
-	case REG_R11:
+	case REG_11:
 		if (mode == CPUMODE_FIQ) {
 			return r11_fiq;
 		}
 		return r11;
 
-	case REG_R12:
+	case REG_12:
 		if (mode == CPUMODE_FIQ) {
 			return r12_fiq;
 		}
 		return r12;
 
-	case REG_R13:
+	case REG_13:
 		switch (mode) {
 		case CPUMODE_USER:
 			return r13;
@@ -70,7 +70,7 @@ const uint32_t Registers::read(RegisterType reg, CPUModeType mode)
 			return r13_und;
 		}
 
-	case REG_R14:
+	case REG_14:
 		switch (mode) {
 		case CPUMODE_USER:
 			return r14;
@@ -91,7 +91,7 @@ const uint32_t Registers::read(RegisterType reg, CPUModeType mode)
 			return r14_und;
 		}
 
-	case REG_R15:
+	case REG_15:
 		return r15;
 
 
@@ -122,53 +122,53 @@ const uint32_t Registers::read(RegisterType reg, CPUModeType mode)
 void Registers::write(RegisterType reg, uint32_t value, CPUModeType mode)
 {
 	switch (reg) {
-	case REG_R0:
+	case REG_0:
 		r0 = value;
-	case REG_R1:
+	case REG_1:
 		r1 = value;
-	case REG_R2:
+	case REG_2:
 		r2 = value;
-	case REG_R3:
+	case REG_3:
 		r3 = value;
-	case REG_R4:
+	case REG_4:
 		r4 = value;
-	case REG_R5:
+	case REG_5:
 		r5 = value;
-	case REG_R6:
+	case REG_6:
 		r6 = value;
-	case REG_R7:
+	case REG_7:
 		r7 = value;
-	case REG_R8:
+	case REG_8:
 		if (mode == CPUMODE_FIQ) {
 			r8_fiq = value;
 		}
 		r8 = value;
 
-	case REG_R9:
+	case REG_9:
 		if (mode == CPUMODE_FIQ) {
 			r9_fiq = value;
 		}
 		r9 = value;
 
-	case REG_R10:
+	case REG_10:
 		if (mode == CPUMODE_FIQ) {
 			r10_fiq = value;
 		}
 		r10 = value;
 
-	case REG_R11:
+	case REG_11:
 		if (mode == CPUMODE_FIQ) {
 			r11_fiq = value;
 		}
 		r11 = value;
 
-	case REG_R12:
+	case REG_12:
 		if (mode == CPUMODE_FIQ) {
 			r12_fiq = value;
 		}
 		r12 = value;
 
-	case REG_R13:
+	case REG_13:
 		switch (mode) {
 		case CPUMODE_USER:
 			r13 = value;
@@ -189,7 +189,7 @@ void Registers::write(RegisterType reg, uint32_t value, CPUModeType mode)
 			r13_und = value;
 		}
 
-	case REG_R14:
+	case REG_14:
 		switch (mode) {
 		case CPUMODE_USER:
 			r14 = value;
@@ -210,7 +210,7 @@ void Registers::write(RegisterType reg, uint32_t value, CPUModeType mode)
 			r14_und = value;
 		}
 
-	case REG_R15:
+	case REG_15:
 		r15 = value;
 
 

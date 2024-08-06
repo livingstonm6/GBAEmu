@@ -3,24 +3,30 @@
 #include "CPUMode.h"
 
 typedef enum RegisterType {
-	REG_R0 = 0,
-	REG_R1 = 1,
-	REG_R2 = 2,
-	REG_R3 = 3,
-	REG_R4 = 4,
-	REG_R5 = 5,
-	REG_R6 = 6, 
-	REG_R7 = 7, 
-	REG_R8 = 8,
-	REG_R9 = 9, 
-	REG_R10 = 10,
-	REG_R11 = 11,
-	REG_R12 = 12,
-	REG_R13 = 13,
-	REG_R14 = 14,
-	REG_R15 = 15,
+	REG_0 = 0,
+	REG_1 = 1,
+	REG_2 = 2,
+	REG_3 = 3,
+	REG_4 = 4,
+	REG_5 = 5,
+	REG_6 = 6, 
+	REG_7 = 7, 
+	REG_8 = 8,
+	REG_9 = 9, 
+	REG_10 = 10,
+	REG_11 = 11,
+	REG_12 = 12,
+	REG_13 = 13,
+	REG_14 = 14,
+	REG_15 = 15,
 	REG_CPSR = 16,
-	REG_SPSR = 17
+	REG_SPSR = 17,
+	
+	// alternative names for r13-15:
+	// Stack pointer, link register, and program counter
+	REG_SP = 13,
+	REG_LR = 14,
+	REG_PC = 15
 };
 
 class Registers
@@ -64,7 +70,8 @@ private:
 	uint32_t r14_irq;
 	uint32_t r14_und;
 
-	uint32_t r15;
+	// Program counter starts at 0 the beginning of ROM data
+	uint32_t r15 = 0x08000000;
 
 	uint32_t cpsr;
 	uint32_t spsr_fiq;
@@ -74,6 +81,7 @@ private:
 	uint32_t spsr_und;
 
 public:
+
 	const uint32_t read(RegisterType reg, CPUModeType mode);
 	void write(RegisterType reg, uint32_t value, CPUModeType mode);
 

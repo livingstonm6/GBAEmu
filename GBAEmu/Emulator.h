@@ -1,9 +1,12 @@
 #pragma once
-#include "Cartridge.h"
+#include "CPU.h"
+#include "Memory.h"
 class Emulator
 {
 private:
-	Cartridge cart;
+	CPU cpu;
+	MemoryBus bus;
+	bool running = true;
 
 public:
 	const void run();

@@ -24,12 +24,12 @@ void Cartridge::load_rom(const std::string fileName)
 
 	// Display game title
 
-	int current = 0x108;
-	const int end = 0x128;
+	int current = 0x0a0;
+	const int end = 0x0ac;
 
 	std::string title;
 
-	while (current <= end) {
+	while (current < end) {
 
 		title += data[current];
 
@@ -38,4 +38,11 @@ void Cartridge::load_rom(const std::string fileName)
 
 	std::cout << "Game title: " << title << std::endl;
 
+	std::cout << "ROM size: " << data.size() << std::endl;
+
+}
+
+uint8_t Cartridge::read(uint32_t address)
+{
+	return data[address];
 }

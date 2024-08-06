@@ -7,10 +7,17 @@ const void Emulator::run()
 {
 
 	std::cout << "Enter filename: ";
-	std::string fileName;
-	std::getline(std::cin, fileName);
+	std::string file_name;
+	std::getline(std::cin, file_name);
 
-	cart.load_rom(fileName);
+	bus.load_rom(file_name);
+	cpu.connect(&bus);
+
+	while (running) {
+		cpu.step();
+		running = false;
+	}
 	
+
 
 }
