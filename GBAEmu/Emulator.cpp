@@ -15,7 +15,6 @@ const void Emulator::run()
 
 	while (running) {
 		cpu.step();
-		running = false;
 	}
 	
 

@@ -53,10 +53,13 @@
     <ClInclude Include="Registers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CPUMode.h">
+    <ClInclude Include="MemoryBus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MemoryBus.h">
+    <ClInclude Include="CPUState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CPUMode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

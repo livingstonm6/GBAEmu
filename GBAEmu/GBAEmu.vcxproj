@@ -140,6 +140,7 @@
   <ItemGroup>
     <ClInclude Include="Cartridge.h" />
     <ClInclude Include="CPUMode.h" />
+    <ClInclude Include="CPUState.h" />
     <ClInclude Include="CPU.h" />
     <ClInclude Include="InstructionExecutor.h" />
     <ClInclude Include="Emulator.h" />
