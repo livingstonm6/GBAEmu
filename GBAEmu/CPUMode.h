@@ -1,6 +1,6 @@
 #pragma once
 
-typedef enum CPUModeType {
+enum CPUModeType {
 	CPUMODE_USER = 0,
 	CPUMODE_FIQ = 1,
 	CPUMODE_SVC = 2,

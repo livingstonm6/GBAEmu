@@ -2,7 +2,7 @@
 #include <cstdint>
 #include "CPUMode.h"
 
-typedef enum RegisterType {
+enum RegisterType {
 	REG_0 = 0,
 	REG_1 = 1,
 	REG_2 = 2,

@@ -1,17 +1,18 @@
 #pragma once
 #include "Registers.h"
-#include "CPUMode.h"
+#include "CPUState.h"
 #include <memory>
 #include "MemoryBus.h"
+#include "InstructionExecutor.h"
+
 class CPU
 {
 private:
-	Registers reg_;
-	CPUModeType mode_ = CPUMODE_USER;
-
 	MemoryBus* bus_ = nullptr;
 
-	uint32_t current_opcode_;
+	CPUState state_;
+
+	InstructionExecutor executor_;
 
 	void fetch_instruction();
 	void fetch_data();
@@ -19,7 +20,11 @@ private:
 	void print_status();
 
 public:
+
+	// Receives pointer to MemoryBus when called by Emulator.
 	void connect(MemoryBus* bus);
+
+	// Performs one CPU step
 	void step();
 };
 
