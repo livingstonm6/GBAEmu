@@ -32,9 +32,72 @@ void InstructionExecutor::branch(CPUState* state)
 
 }
 
+bool InstructionExecutor::check_condition(CPUState* state)
+{
+	int cond = state->current_opcode >> 28;
+	switch (cond) {
+	case 0b0000:
+		return state->reg.get_flag(FLAG_Z);
+	case 0b0001:
+		return !state->reg.get_flag(FLAG_Z);
+	case 0b0010:
+		return state->reg.get_flag(FLAG_C);
+	case 0b0011:
+		return !state->reg.get_flag(FLAG_C);
+	case 0b0100:
+		return state->reg.get_flag(FLAG_N);
+	case 0b0101:
+		return !state->reg.get_flag(FLAG_N);
+	case 0b0110:
+		return state->reg.get_flag(FLAG_V);
+	case 0b0111:
+		return !state->reg.get_flag(FLAG_V);
+	case 0b1000: {
+		bool c = state->reg.get_flag(FLAG_C);
+		bool z = state->reg.get_flag(FLAG_Z);
+		return (c == true && z == false);
+	}
+	case 0b1001: {
+		bool c = state->reg.get_flag(FLAG_C);
+		bool z = state->reg.get_flag(FLAG_Z);
+		return (c == 0 || z == 1);
+	}
+	case 0b1010: {
+		bool n = state->reg.get_flag(FLAG_N);
+		bool v = state->reg.get_flag(FLAG_V);
+		return (n == v);
+	}
+	case 0b1011: {
+		bool n = state->reg.get_flag(FLAG_N);
+		bool v = state->reg.get_flag(FLAG_V);
+		return (n != v);
+	}
+	case 0b1100: {
+		bool z = state->reg.get_flag(FLAG_Z);
+		bool n = state->reg.get_flag(FLAG_N);
+		bool v = state->reg.get_flag(FLAG_V);
+		return (z == 0 && n == v);
+	}
+	case 0b1101: {
+		bool z = state->reg.get_flag(FLAG_Z);
+		bool n = state->reg.get_flag(FLAG_N);
+		bool v = state->reg.get_flag(FLAG_V);
+		return (z == 1 || n != v);
+	}
+	case 0b1110:
+		return true;
+	}
+}
+
 
 void InstructionExecutor::execute(CPUState* state)
 {
+	bool cond = check_condition(state);
+	std::cout << "Condition: " << cond << "\n";
+	if (!cond) {
+		return;
+	}
+
 	uint8_t op_bits = (state->current_opcode >> 25) & 0b111;
 
 	if (op_bits == 0b101) {

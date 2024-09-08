@@ -4,6 +4,7 @@
 #include <memory>
 #include "MemoryBus.h"
 #include "InstructionExecutor.h"
+#include "OpcodeDecoder.h"
 
 class CPU
 {
@@ -13,6 +14,7 @@ private:
 	CPUState state_;
 
 	InstructionExecutor executor_;
+	OpcodeDecoder decoder_;
 
 	void fetch_instruction();
 	void fetch_data();

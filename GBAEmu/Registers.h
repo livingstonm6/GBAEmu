@@ -29,6 +29,13 @@ enum RegisterType {
 	REG_PC = 15
 };
 
+enum CPUFlagType {
+	FLAG_N = 0,
+	FLAG_Z = 1,
+	FLAG_C = 2, 
+	FLAG_V = 3
+};
+
 class Registers
 {
 private:
@@ -84,6 +91,9 @@ public:
 
 	const uint32_t read(RegisterType reg, CPUModeType mode);
 	void write(RegisterType reg, uint32_t value, CPUModeType mode);
+
+	bool get_flag(CPUFlagType flag);
+	void set_flags(bool v, bool c, bool z, bool n);
 
 };
 

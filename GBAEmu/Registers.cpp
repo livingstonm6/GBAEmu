@@ -240,3 +240,25 @@ void Registers::write(RegisterType reg, uint32_t value, CPUModeType mode)
 
 
 }
+
+void Registers::set_flags(bool v, bool c, bool z, bool n)
+{
+
+}
+
+bool Registers::get_flag(CPUFlagType flag)
+{
+	switch (flag)
+	{
+	case FLAG_V:
+		return (cpsr >> 28) & 1;
+	case FLAG_C:
+		return (cpsr >> 29) & 1;
+	case FLAG_Z:
+		return (cpsr >> 30) & 1;
+	case FLAG_N:
+		return (cpsr >> 31) & 1;
+	default:
+		break;
+	}
+}
