@@ -4,7 +4,7 @@
 Instruction OpcodeDecoder::decode(uint32_t opcode)
 {
     int temp = (opcode >> 25) & 0b111;
-    if (temp = 0b001) {
+    if (temp == 0b001) {
         return Instruction("Data Processing/PSR Transfer");
     }
 
@@ -76,6 +76,6 @@ Instruction OpcodeDecoder::decode(uint32_t opcode)
     }
                         
 
-    std::cerr << "Error: Unrecognized Opcode" << std::endl;
+    std::cerr << "Error: Cannot Decode Unrecognized ARM Opcode" << std::endl;
     exit(-1);
 }
