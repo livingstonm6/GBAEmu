@@ -93,7 +93,7 @@ public:
 	void write(RegisterType reg, uint32_t value, CPUModeType mode);
 
 	bool get_flag(CPUFlagType flag);
-	void set_flags(bool v, bool c, bool z, bool n);
+	void set_flags(int v, int c, int z, int n);
 
 };
 

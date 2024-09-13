@@ -241,8 +241,26 @@ void Registers::write(RegisterType reg, uint32_t value, CPUModeType mode)
 
 }
 
-void Registers::set_flags(bool v, bool c, bool z, bool n)
+void Registers::set_flags(int v, int c, int z, int n)
 {
+	int flags[] = { v, c, z, n };
+	for (int i = 0; i < 4; i++) {
+		
+
+		if (flags[i] == -1) {
+			continue;
+		}
+
+		uint32_t mask = (1 << (28 + i));
+		if (flags[i] == 1) {
+			cpsr |= mask;
+		}
+		else {
+			cpsr &= ~(mask);
+		}
+
+
+	}
 
 }
 
